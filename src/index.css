@@ -16,3 +16,7 @@
   display: grid;
   align-items: center;
 }
+
+.active {
+  background: #e7f1f9;
+}
