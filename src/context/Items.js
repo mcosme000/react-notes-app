@@ -4,18 +4,24 @@ const ItemsContext = createContext()
 
 function Provider({children}) {
   const [items, setItems] = useState([])
-  const [currentTab, setCurrentTab] = useState('')
+  const [currentTab, setCurrentTab] = useState('all')
 
   useEffect(() => {
-    console.log("Started app")
-    console.log(currentTab)
+
   }, [currentTab])
+
+  const addItem = (newItem) => {
+    console.log('From items context');
+    console.log(newItem)
+  }
 
   const elements = {
     items: items,
     currentTab: currentTab,
-    setCurrentTab: setCurrentTab
+    setCurrentTab: setCurrentTab,
+    addItem: addItem
   }
+
 
   return (
     <ItemsContext.Provider value={elements}>
