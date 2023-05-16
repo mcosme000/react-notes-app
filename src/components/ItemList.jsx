@@ -9,7 +9,7 @@ const ItemList = () => {
   })
 
   return (
-    <div className="p-5 md:grid md:grid-cols-2 lg:gap-4">
+    <div className="p-5 md:grid md:grid-cols-2 lg:gap-4 overflow-auto">
       {renderedItems}
     </div>
   )

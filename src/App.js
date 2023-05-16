@@ -11,11 +11,11 @@ function App() {
     setShowOverlay(!showOverlay)
   }
   return (
-    <div className="w-11/12 lg:w-4/5 h-4/5 m-auto flex flex-col rounded-lg bg-white shadow-md">
+    <div className="App lg:w-4/5 md:h-4/5 shadow-md bg-white">
       <BrowserRouter>
         <Header />
-        <main className="grow relative p-3">
-          <div>
+        <main className="h-full grow relative p-3 overflow-auto">
+          <div className="overflow-auto">
             <button onClick={handleClick} className="btn">Add item</button>
             <ItemList />
             { showOverlay && <Overlay onClick={handleClick}/> }
