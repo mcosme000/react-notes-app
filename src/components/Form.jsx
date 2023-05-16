@@ -34,7 +34,7 @@ const Form = ({onClick}) => {
     <div className="h-11/12 w-11/12 m-auto bg-white p-8">
       <div className="flex justify-between">
         <h1>Add a new item</h1>
-        <button onClick={onClick}>Cancel</button>
+        <button onClick={onClick} className="btn bg-red-600 text-white">Cancel</button>
       </div>
       <form className="h-full lg:flex justify-between" onSubmit={handleSubmit}>
         <div className="w-full lg:w-2/4 lg:p-5">
@@ -43,24 +43,21 @@ const Form = ({onClick}) => {
             <input
               id="name" type="text"
               name="name" value={formData.name}
-              onChange={handleChange}
-              className="px-3.5 py-1 border-2 border-solid rounded mb-5 w-full"/>
+              onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="link" className="block">Product link</label>
             <input
               id="link" type="text"
               name="link" value={formData['link']}
-              onChange={handleChange}
-              className="px-3.5 py-1 border-2 border-solid rounded mb-5 w-full"/>
+              onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="image-url" className="block">Product image</label>
             <input
               id="image-url" type="text"
               name="image-url" value={formData['image-url']}
-              onChange={handleChange}
-              className="px-3.5 py-1 border-2 border-solid rounded mb-5 w-full"/>
+              onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="price" className="block">Price</label>
@@ -68,12 +65,12 @@ const Form = ({onClick}) => {
               id="price" type="number"
               name="price" value={formData.price}
               onChange={handleChange}
-              className="px-3.5 py-1 border-2 border-solid rounded mb-5 w-full"/>
+              className="last:mb-0"/>
           </div>
         </div>
-        <div className="w-full lg:w-2/4 lg:p-3">
-          <fieldset>
-            <legend>List category</legend>
+        <div className="w-full lg:w-2/4 lg:p-5 flex flex-col">
+          <fieldset className="flex-grow">
+            <h3>List category</h3>
             <div>
               <input
                   type="radio"
@@ -115,7 +112,7 @@ const Form = ({onClick}) => {
               <label htmlFor="fashion">Fashion</label>
             </div>
           </fieldset>
-          <button type="submit" className="w-full bg-blue-300">Add item</button>
+          <button type="submit" className="btn">Add item</button>
         </div>
       </form>
     </div>

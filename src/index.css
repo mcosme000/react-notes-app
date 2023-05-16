@@ -15,8 +15,41 @@
   width: 100%;
   display: grid;
   align-items: center;
+  background: rgb(241 245 249);
 }
 
 .active {
-  background: #e7f1f9;
+  background: #fff;
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl font-bold mb-2;
+  }
+  h2 {
+    @apply text-xl;
+  }
+
+  h3 {
+    @apply text-lg font-bold mb-2;
+  }
+
+  input[type="text"], input[type="number"] {
+    @apply px-3.5 py-1 border-2 border-solid rounded mb-5 w-full;
+  }
+
+  input[type="radio"] {
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+}
+
+
+@layer components {
+  .btn {
+    background-color: #ddd;
+    border-radius: 3px;
+    padding: 5px 15px;
+    margin-right: 10px;
+  }
 }
