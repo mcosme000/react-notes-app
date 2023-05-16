@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import ItemsContext from '../context/Items'
 
-const Form = () => {
+const Form = ({onClick}) => {
   const [formData, setFormData] = useState({
     name: "",
     link: "",
@@ -30,7 +30,10 @@ const Form = () => {
 
   return (
     <div className="h-11/12 w-11/12 m-auto bg-white p-8">
-      <h1>Add a new item</h1>
+      <div className="flex justify-between">
+        <h1>Add a new item</h1>
+        <button onClick={onClick}>Cancel</button>
+      </div>
       <form className="h-full lg:flex justify-between" onSubmit={handleSubmit}>
         <div className="w-full lg:w-2/4 lg:p-5">
           <div>

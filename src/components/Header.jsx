@@ -7,7 +7,7 @@ const Header = () => {
 
   const { setCurrentTab } = useContext(ItemsContext)
 
-  const navStyles = classNames('px-8 py-4', {
+  const navStyles = classNames('px-4 py-3 lg:px-8 lg:py-8 inline-block w-32 first:rounded-tl-lg last:rounded-tr-lg', {
     isActive: true,
   });
 
@@ -29,11 +29,12 @@ const Header = () => {
       to={element.href}
       className={navStyles}
       onClick={handleClick}>
-      {element.name}</NavLink>
+      {element.name}
+    </NavLink>
   })
   return (
-    <header>
-      <ul className="grid grid-cols-5 text-center">
+    <header className="overflow-x-auto">
+      <ul className="flex justify-between flex-nowrap w-screen overflow-x-auto text-center">
         {renderNavigation}
       </ul>
     </header>
