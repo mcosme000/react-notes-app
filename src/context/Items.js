@@ -12,6 +12,8 @@ function Provider({children}) {
   }, [itemsData])
 
   const addItem = (newItem) => {
+    newItem = {...newItem, id: itemsData.length + 1}
+    console.log(newItem);
     const updatedItems = [
       ...itemsData,
       newItem
