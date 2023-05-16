@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from "./components/Header";
 import Overlay from "./components/Overlay";
+import ItemList from './components/ItemList';
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Header />
         <main className="grow relative">
           <button onClick={handleClick}>Add item</button>
+          <ItemList />
           { showOverlay && <Overlay onClick={handleClick}/> }
         </main>
       </BrowserRouter>

@@ -7,7 +7,7 @@ const Header = () => {
 
   const { setCurrentTab } = useContext(ItemsContext)
 
-  const navStyles = classNames('px-4 py-3 lg:px-8 lg:py-8 inline-block w-32 first:rounded-tl-lg last:rounded-tr-lg', {
+  const navStyles = classNames('px-4 py-3 lg:px-8 lg:py-8 inline-block first:rounded-tl-lg last:rounded-tr-lg', {
     isActive: true,
   });
 
@@ -34,7 +34,7 @@ const Header = () => {
   })
   return (
     <header className="overflow-x-auto">
-      <ul className="flex justify-between flex-nowrap w-screen overflow-x-auto text-center">
+      <ul className="w-screen lg:w-full flex justify-between flex-nowrap lg:grid lg:grid-cols-5 text-center">
         {renderNavigation}
       </ul>
     </header>

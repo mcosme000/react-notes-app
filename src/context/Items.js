@@ -3,21 +3,24 @@ import { createContext, useState, useEffect } from 'react'
 const ItemsContext = createContext()
 
 function Provider({children}) {
-  const [items, setItems] = useState([])
+  const [itemsData, setItemsData] = useState([])
   const [currentTab, setCurrentTab] = useState('all')
 
 
   useEffect(() => {
-
-  }, [currentTab])
+    console.log("We added a new element")
+  }, [itemsData])
 
   const addItem = (newItem) => {
-    console.log('From items context');
-    console.log(newItem)
+    const updatedItems = [
+      ...itemsData,
+      newItem
+    ]
+    setItemsData(updatedItems)
   }
 
   const elements = {
-    items: items,
+    itemsData: itemsData,
     currentTab: currentTab,
     setCurrentTab: setCurrentTab,
     addItem: addItem

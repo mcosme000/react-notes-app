@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import ItemsContext from '../context/Items'
 
+
 const Form = ({onClick}) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -23,9 +24,10 @@ const Form = ({onClick}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     addItem(formData)
-    setFormData({
-      name: "", link: "", "image-url": "", price: "", category: ""
-    })
+    onClick()
+    // setFormData({
+    //   name: "", link: "", "image-url": "", price: "", category: ""
+    // })
   }
 
   return (
