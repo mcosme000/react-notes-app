@@ -1,4 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
+import { onSnapshot, addDoc } from "firebase/firestore"
+import { itemsCollection } from "../firebase"
 
 const ItemsContext = createContext()
 
@@ -8,17 +10,18 @@ function Provider({children}) {
 
 
   useEffect(() => {
-    console.log("We added a new element")
-  }, [itemsData])
+   const unsubscribe = onSnapshot(itemsCollection, (snapshot) => {
+      const itemsArr = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+      }))
+      setItemsData(itemsArr)
+    })
+    return unsubscribe
+  }, [])
 
   const addItem = (newItem) => {
-    newItem = {...newItem, id: itemsData.length + 1}
-    console.log(newItem);
-    const updatedItems = [
-      ...itemsData,
-      newItem
-    ]
-    setItemsData(updatedItems)
+    addDoc(itemsCollection, newItem)
   }
 
   const elements = {
