@@ -8,7 +8,7 @@ function Provider({children}) {
   const [itemsData, setItemsData] = useState([])
   const [filter, setFilter] = useState([])
   const [currentTab, setCurrentTab] = useState('all')
-
+  const [selectedItem, setSelectedItem] = useState([])
 
   useEffect(() => {
    const unsubscribe = onSnapshot(itemsCollection, (snapshot) => {
@@ -26,6 +26,10 @@ function Provider({children}) {
     addDoc(itemsCollection, newItem)
   }
 
+  const editItem = (item) => {
+    console.log("Editing!")
+  }
+
   const filterElements = (filterList) => {
     setFilter(filterList)
   }
@@ -35,7 +39,10 @@ function Provider({children}) {
     filter: filter,
     currentTab: currentTab,
     setCurrentTab: setCurrentTab,
+    selectedItem: selectedItem,
+    setSelectedItem: setSelectedItem,
     addItem: addItem,
+    editItem: editItem,
     filterElements: filterElements
   }
 

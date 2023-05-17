@@ -2,23 +2,29 @@ import { useContext } from 'react'
 import Item from "./Item"
 import ItemsContext from "../context/Items"
 
-const ItemList = ({onClick}) => {
+const ItemList = ({onClick, onEdit}) => {
   const { filter } = useContext(ItemsContext)
+
   const renderItems = filter.map((item) => {
-    return <Item data={item} key={item.id}/>
+    return <Item data={item} key={item.id} onClick={onClick} onEdit={onEdit}/>
   })
-  console.log(renderItems.length)
+
+  const handleClick = () => {
+    onClick()
+    onEdit()
+  }
+
   return (
     <div className="p-5 h-full">
      {renderItems.length === 0 &&
       <div className="h-full flex flex-col items-center justify-center">
         <p>You don't have any items saved yet</p>
         <p>Why don't you add some for this category?</p>
-        <button className="btn btn-big bg-green" onClick={onClick}>Add item</button>
+        <button className="btn btn-big bg-green" onClick={handleClick}>Add item</button>
       </div>}
 
       <div>
-        {renderItems.length > 0 && <button className="btn btn-big bg-green" onClick={onClick}>Add item</button>}
+        {renderItems.length > 0 && <button className="btn btn-big bg-green" onClick={handleClick}>Add item</button>}
         <div className="mt-4 md:grid md:grid-cols-2 lg:gap-4 overflow-auto">
           {renderItems}
         </div>

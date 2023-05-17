@@ -1,6 +1,10 @@
 import classnames from 'classnames'
+import { useContext } from 'react'
+import ItemsContext from '../context/Items'
 
-const Item = ({data}) => {
+const Item = ({data, onClick, onEdit}) => {
+
+  const { itemsData, setSelectedItem } = useContext(ItemsContext)
 
   const cardClasses = classnames('mb-3 flex rounded-lg p-2', {
     'bg-home': data.category.toLowerCase() === 'home',
@@ -16,10 +20,18 @@ const Item = ({data}) => {
     'bg-fashion-dark': data.category.toLowerCase() === 'fashion'
   })
 
+  const handleClick = () => {
+    const clickedId = data.id
+    const selectedItem = itemsData.filter(item => item.id === clickedId)
+    setSelectedItem(selectedItem)
+    onClick()
+    onEdit("edit")
+  }
+
   return (
     <div className={cardClasses}>
       <div className="w-16 h-16 md:w-36 md:h-28">
-        <img src={data['image-url'] || 'https://images.unsplash.com/photo-1557683304-673a23048d34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=582&q=80'}
+        <img src={data.image || 'https://images.unsplash.com/photo-1557683304-673a23048d34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=582&q=80'}
         alt="product"/>
       </div>
       <div className="w-full px-2 flex flex-col">
@@ -40,7 +52,7 @@ const Item = ({data}) => {
           <a href={data.link} target="_blank" rel="noreferrer"
           className="btn inline-block md:btn-main">Link</a>
           <button
-          className="btn md:btn-main">Edit</button>
+          className="btn md:btn-main" onClick={handleClick}>Edit</button>
         </div>
       </div>
     </div>

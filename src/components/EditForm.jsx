@@ -3,17 +3,18 @@ import ItemsContext from '../context/Items'
 
 
 const Form = ({onClick, item}) => {
-  const [formData, setFormData] = useState({
-    name: "",
-    link: "",
-    image: "",
-    price: "",
-    category: ""
+  const { name, price, link, image, category} = item[0]
+  const [editFormData, setEditFormData] = useState({
+    name: name,
+    link: link,
+    image: image,
+    price: price,
+    category: category
   })
   const { addItem } = useContext(ItemsContext)
 
   const handleChange = (e) => {
-    setFormData((prevState) => {
+    setEditFormData((prevState) => {
       return {
         ...prevState,
         [e.target.name]: e.target.value
@@ -23,14 +24,14 @@ const Form = ({onClick, item}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addItem(formData)
+    addItem(editFormData)
     onClick()
   }
 
   return (
     <div className="h-11/12 w-11/12 m-auto bg-white py-8 px-4 rounded-lg">
       <div className="flex justify-between">
-        <h1 className="lg:pl-5">Add a new item</h1>
+        <h1 className="lg:pl-5">Edit this item</h1>
         <button onClick={onClick} className="btn bg-red text-white font-bold">Cancel</button>
       </div>
       <form className="h-full lg:flex justify-between" onSubmit={handleSubmit}>
@@ -39,28 +40,28 @@ const Form = ({onClick, item}) => {
             <label htmlFor="name" className="block">Item name</label>
             <input
               id="name" type="text"
-              name="name" value={formData.name}
+              name="name" value={editFormData.name}
               onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="link" className="block">Product link</label>
             <input
               id="link" type="text"
-              name="link" value={formData['link']}
+              name="link" value={editFormData['link']}
               onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="image" className="block">Product image</label>
             <input
               id="image" type="text"
-              name="image" value={formData['image']}
+              name="image" value={editFormData['image']}
               onChange={handleChange}/>
           </div>
           <div>
             <label htmlFor="price" className="block">Price</label>
             <input
               id="price" type="number"
-              name="price" value={formData.price}
+              name="price" value={editFormData.price}
               onChange={handleChange}
               className="lg:last:mb-0"/>
           </div>
@@ -115,7 +116,7 @@ const Form = ({onClick, item}) => {
               </div>
             </div>
           </fieldset>
-          <button type="submit" className="btn btn-big bg-green">Add item</button>
+          <button type="submit" className="btn btn-big bg-green">Update changes</button>
         </div>
       </form>
     </div>
