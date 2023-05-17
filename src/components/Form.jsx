@@ -28,10 +28,10 @@ const Form = ({onClick}) => {
   }
 
   return (
-    <div className="h-11/12 w-11/12 m-auto bg-white p-8">
+    <div className="h-11/12 w-11/12 m-auto bg-white py-8 px-4 rounded-lg">
       <div className="flex justify-between">
-        <h1>Add a new item</h1>
-        <button onClick={onClick} className="btn bg-red-600 text-white">Cancel</button>
+        <h1 className="lg:pl-5">Add a new item</h1>
+        <button onClick={onClick} className="btn bg-red text-white font-bold">Cancel</button>
       </div>
       <form className="h-full lg:flex justify-between" onSubmit={handleSubmit}>
         <div className="w-full lg:w-2/4 lg:p-5">
@@ -62,54 +62,60 @@ const Form = ({onClick}) => {
               id="price" type="number"
               name="price" value={formData.price}
               onChange={handleChange}
-              className="last:mb-0"/>
+              className="lg:last:mb-0"/>
           </div>
         </div>
-        <div className="w-full lg:w-2/4 lg:p-5 flex flex-col">
+        <div className="w-full lg:w-2/4 lg:p-5 lg:mt-3 flex flex-col">
           <fieldset className="flex-grow">
             <h3>List category</h3>
-            <div>
-              <input
-                  type="radio"
-                  id="home"
-                  name="category"
-                  value="Home"
-                  onChange={handleChange}
-              />
-              <label htmlFor="home">Home</label>
+            {/* FIRST ROW: radio buttons in two columns in md screens */}
+            <div className="flex lg:block">
+              <div className="mr-10">
+                <input
+                    type="radio"
+                    id="home"
+                    name="category"
+                    value="Home"
+                    onChange={handleChange}
+                />
+                <label htmlFor="home">Home</label>
+              </div>
+              <div>
+                <input
+                    type="radio"
+                    id="present"
+                    name="category"
+                    value="Presents"
+                    onChange={handleChange}
+                />
+                <label htmlFor="present">Presents</label>
+              </div>
             </div>
-            <div>
-              <input
-                  type="radio"
-                  id="present"
-                  name="category"
-                  value="Presents"
-                  onChange={handleChange}
-              />
-              <label htmlFor="present">Presents</label>
-            </div>
-            <div>
-              <input
-                  type="radio"
-                  id="food"
-                  name="category"
-                  value="Food"
-                  onChange={handleChange}
-              />
-              <label htmlFor="food">Food</label>
-            </div>
-            <div>
-              <input
-                  type="radio"
-                  id="fashion"
-                  name="category"
-                  value="Fashion"
-                  onChange={handleChange}
-              />
-              <label htmlFor="fashion">Fashion</label>
+            {/* SECOND ROW: radio buttons in two columns in md screens */}
+            <div className="flex lg:block">
+              <div className="mr-10">
+                <input
+                    type="radio"
+                    id="food"
+                    name="category"
+                    value="Food"
+                    onChange={handleChange}
+                />
+                <label htmlFor="food">Food</label>
+              </div>
+              <div>
+                <input
+                    type="radio"
+                    id="fashion"
+                    name="category"
+                    value="Fashion"
+                    onChange={handleChange}
+                />
+                <label htmlFor="fashion">Fashion</label>
+              </div>
             </div>
           </fieldset>
-          <button type="submit" className="btn">Add item</button>
+          <button type="submit" className="btn btn-big bg-green">Add item</button>
         </div>
       </form>
     </div>

@@ -2,7 +2,7 @@ import Form from '../components/Form'
 
 const Overlay = ({onClick}) => {
   return (
-    <div className="absolute top-0 left-0 grid items-center w-full h-full bg-blue-600 bg-opacity-20">
+    <div className="absolute top-0 left-0 rounded-md grid items-center w-full h-full bg-overlay bg-opacity-80">
       <Form onClick={onClick}/>
     </div>
   )

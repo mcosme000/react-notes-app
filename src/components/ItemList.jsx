@@ -14,11 +14,11 @@ const ItemList = ({onClick}) => {
       <div className="h-full flex flex-col items-center justify-center">
         <p>You don't have any items saved yet</p>
         <p>Why don't you add some for this category?</p>
-        <button className="btn" onClick={onClick}>Add item</button>
+        <button className="btn btn-big bg-green" onClick={onClick}>Add item</button>
       </div>}
 
       <div>
-        {renderItems.length > 0 && <button className="btn" onClick={onClick}>Add item</button>}
+        {renderItems.length > 0 && <button className="btn btn-big bg-green" onClick={onClick}>Add item</button>}
         <div className="mt-4 md:grid md:grid-cols-2 lg:gap-4 overflow-auto">
           {renderItems}
         </div>

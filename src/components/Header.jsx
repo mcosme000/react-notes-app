@@ -7,7 +7,7 @@ const Header = () => {
 
   const { setCurrentTab, itemsData, filterElements } = useContext(ItemsContext)
 
-  const navStyles = classNames('px-2 py-2 w-64 md:w-36 m-1 bg-gray-200 text-sm font-bold rounded-lg', {
+  const navStyles = classNames('px-2 py-2 w-64 md:w-36 m-1 bg-gray text-sm font-bold rounded-lg', {
     isActive: true,
   });
 

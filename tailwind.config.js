@@ -20,7 +20,10 @@ module.exports = {
       'presents-dark': '#a2bfd6',
       'fashion': '#dcb4c2',
       'fashion-dark': '#d3a7b6',
-
+      'gray': '#dddddd',
+      'overlay': '#dddddd',
+      'red': '#a9331e',
+      'green': '#5aa86b'
     },
   },
   plugins: [],
