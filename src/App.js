@@ -15,8 +15,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <main className="h-full grow relative p-3 overflow-auto">
-          <div className="overflow-auto">
-            <button onClick={handleClick} className="btn">Add item</button>
+          <div className="overflow-auto h-full">
             <ItemList />
             { showOverlay && <Overlay onClick={handleClick}/> }
           </div>
