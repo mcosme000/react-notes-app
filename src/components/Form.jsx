@@ -86,7 +86,7 @@ const Form = ({onClick}) => {
                   type="radio"
                   id="present"
                   name="category"
-                  value="Present"
+                  value="Presents"
                   onChange={handleChange}
               />
               <label htmlFor="present">Presents</label>
@@ -96,7 +96,7 @@ const Form = ({onClick}) => {
                   type="radio"
                   id="hobby"
                   name="category"
-                  value="Hobby"
+                  value="Hobbies"
                   onChange={handleChange}
               />
               <label htmlFor="hobby">Hobbies</label>

@@ -6,6 +6,7 @@ const ItemsContext = createContext()
 
 function Provider({children}) {
   const [itemsData, setItemsData] = useState([])
+  const [filter, setFilter] = useState([])
   const [currentTab, setCurrentTab] = useState('all')
 
 
@@ -16,6 +17,7 @@ function Provider({children}) {
         id: doc.id
       }))
       setItemsData(itemsArr)
+      setFilter(itemsArr)
     })
     return unsubscribe
   }, [])
@@ -24,11 +26,17 @@ function Provider({children}) {
     addDoc(itemsCollection, newItem)
   }
 
+  const filterElements = (filterList) => {
+    setFilter(filterList)
+  }
+
   const elements = {
     itemsData: itemsData,
+    filter: filter,
     currentTab: currentTab,
     setCurrentTab: setCurrentTab,
-    addItem: addItem
+    addItem: addItem,
+    filterElements: filterElements
   }
 
 

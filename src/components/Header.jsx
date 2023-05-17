@@ -5,7 +5,7 @@ import ItemsContext from '../context/Items';
 
 const Header = () => {
 
-  const { setCurrentTab } = useContext(ItemsContext)
+  const { setCurrentTab, itemsData, filterElements } = useContext(ItemsContext)
 
   const navStyles = classNames('px-4 py-3 w-64 md:w-auto lg:px-4 lg:py-5 first:rounded-tl-lg last:rounded-tr-lg bg-slate-50', {
     isActive: true,
@@ -20,7 +20,14 @@ const Header = () => {
   ]
 
   const handleClick = (e) => {
-    setCurrentTab(e.target.innerHTML)
+    const target = e.target.innerHTML
+    setCurrentTab(target)
+    if (target === "All") {
+      filterElements(itemsData)
+    } else {
+      const filter = itemsData.filter(item => item.category === target)
+      filterElements(filter)
+    }
   }
 
   const renderNavigation = navigation.map((element) => {

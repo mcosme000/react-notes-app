@@ -3,8 +3,8 @@ import Item from "./Item"
 import ItemsContext from "../context/Items"
 
 const ItemList = () => {
-  const { itemsData } = useContext(ItemsContext)
-  const renderedItems = itemsData.map((item) => {
+  const { filter } = useContext(ItemsContext)
+  const renderedItems = filter.map((item) => {
     return <Item data={item} key={item.id}/>
   })
 
