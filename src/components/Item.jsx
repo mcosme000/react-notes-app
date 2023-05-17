@@ -1,6 +1,27 @@
-const Item = ({data}) => {
+import classnames from 'classnames'
+
+const Item = ({data, home, presents, food, fashion}) => {
+
+
+  const colorClasses = classnames({
+    'bg-home': data.category.toLowerCase() === 'home',
+    'bg-food': data.category.toLowerCase() === 'food',
+    'bg-presents': data.category.toLowerCase() === 'presents',
+    'bg-fashion': data.category.toLowerCase() === 'fashion'
+  })
+
+  const darkColorClasses = classnames({
+    'bg-home-dark': data.category.toLowerCase() === 'home',
+    'bg-food-dark': data.category.toLowerCase() === 'food',
+    'bg-presents-dark': data.category.toLowerCase() === 'presents',
+    'bg-fashion-dark': data.category.toLowerCase() === 'fashion'
+  })
+
+  const cardStyle = `mb-3 flex rounded-lg p-2 ${colorClasses}`
+  const tagStyle = `py-1 px-4 font-bold text-xs rounded-2xl ${darkColorClasses}`
+
   return (
-    <div className="bg-gray-100 mb-3 flex rounded-lg p-2">
+    <div className={cardStyle}>
       <div className="w-16 h-16 md:w-36 md:h-28">
         <img src={data['image-url'] || 'https://images.unsplash.com/photo-1557683304-673a23048d34?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=582&q=80'}
         alt="product"/>
@@ -12,7 +33,7 @@ const Item = ({data}) => {
             <p className="text-sm md:text-lg">{data.price} $</p>
           </div>
           {/* tag */}
-          <p className="py-1 px-4 font-bold text-xs bg-green-300 rounded-2xl">
+          <p className={tagStyle}>
             <span><img
             src={require(`../media/${data.category}.png`)} alt="category icon"
             className="w-3 inline mr-2"/></span>
