@@ -7,7 +7,7 @@ const Header = () => {
 
   const { setCurrentTab, itemsData, filterElements } = useContext(ItemsContext)
 
-  const navStyles = classNames('px-4 py-3 w-64 md:w-auto lg:px-4 lg:py-5 first:rounded-tl-lg last:rounded-tr-lg bg-slate-50', {
+  const navStyles = classNames('px-2 py-2 w-64 md:w-36 m-1 bg-gray-200 text-sm font-bold rounded-lg', {
     isActive: true,
   });
 
@@ -15,7 +15,7 @@ const Header = () => {
     {id: 1, name: "All", href:"/"},
     {id: 2, name: "Home", href: "/home"},
     {id: 3, name: "Presents", href:"/presents"},
-    {id: 4, name: "Hobbies", href:"/hobbies"},
+    {id: 4, name: "Food", href:"/food"},
     {id: 5, name: "Fashion", href:"/fashion"}
   ]
 
@@ -40,9 +40,9 @@ const Header = () => {
     </NavLink>
   })
   return (
-    <header className="z-10 overflow-x-auto overflow-hidden">
-      <div className="w-screen overflow-x-auto">
-        <ul className="flex justify-between flex-nowrap md:grid md:grid-cols-5 text-center">
+    <header className="z-10 overflow-x-auto overflow-hidden p-3">
+      <div className="w-screen">
+        <ul className="p-1 flex justify-start flex-nowrap md:grid md:grid-cols-5 text-center">
           {renderNavigation}
         </ul>
       </div>

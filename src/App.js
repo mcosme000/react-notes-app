@@ -16,7 +16,7 @@ function App() {
         <Header />
         <main className="h-full grow relative p-3 overflow-auto">
           <div className="overflow-auto h-full">
-            <ItemList />
+            <ItemList onClick={handleClick}/>
             { showOverlay && <Overlay onClick={handleClick}/> }
           </div>
         </main>

@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import Item from "./Item"
 import ItemsContext from "../context/Items"
 
-const ItemList = () => {
+const ItemList = ({onClick}) => {
   const { filter } = useContext(ItemsContext)
   const renderItems = filter.map((item) => {
     return <Item data={item} key={item.id}/>
@@ -14,12 +14,12 @@ const ItemList = () => {
       <div className="h-full flex flex-col items-center justify-center">
         <p>You don't have any items saved yet</p>
         <p>Why don't you add some for this category?</p>
-        <button className="btn">Add item</button>
+        <button className="btn" onClick={onClick}>Add item</button>
       </div>}
 
       <div>
-        {renderItems.length > 0 && <button className="btn">Add item</button>}
-        <div className="md:grid md:grid-cols-2 lg:gap-4 overflow-auto">
+        {renderItems.length > 0 && <button className="btn" onClick={onClick}>Add item</button>}
+        <div className="mt-4 md:grid md:grid-cols-2 lg:gap-4 overflow-auto">
           {renderItems}
         </div>
       </div>
