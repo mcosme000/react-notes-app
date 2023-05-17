@@ -25,9 +25,6 @@ const Form = ({onClick}) => {
     e.preventDefault()
     addItem(formData)
     onClick()
-    // setFormData({
-    //   name: "", link: "", "image-url": "", price: "", category: ""
-    // })
   }
 
   return (
@@ -94,12 +91,12 @@ const Form = ({onClick}) => {
             <div>
               <input
                   type="radio"
-                  id="hobby"
+                  id="food"
                   name="category"
-                  value="Hobbies"
+                  value="Food"
                   onChange={handleChange}
               />
-              <label htmlFor="hobby">Hobbies</label>
+              <label htmlFor="food">Food</label>
             </div>
             <div>
               <input
