@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react'
-import { onSnapshot, addDoc } from "firebase/firestore"
-import { itemsCollection } from "../firebase"
+import { onSnapshot, doc, addDoc, setDoc } from "firebase/firestore"
+import { itemsCollection, db } from "../firebase"
 
 const ItemsContext = createContext()
 
@@ -26,8 +26,9 @@ function Provider({children}) {
     addDoc(itemsCollection, newItem)
   }
 
-  const editItem = (item) => {
-    console.log("Editing!")
+  const editItem = async (item) => {
+    const docRef = doc(db, 'items', item.id)
+    await setDoc(docRef, item, { merge: true})
   }
 
   const filterElements = (filterList) => {

@@ -3,15 +3,17 @@ import ItemsContext from '../context/Items'
 
 
 const Form = ({onClick, item}) => {
-  const { name, price, link, image, category} = item[0]
+  const { id, name, price, link, image, category} = item[0]
   const [editFormData, setEditFormData] = useState({
+    // I need to keep the id
+    id: id,
     name: name,
     link: link,
     image: image,
     price: price,
     category: category
   })
-  const { addItem } = useContext(ItemsContext)
+  const { editItem } = useContext(ItemsContext)
 
   const handleChange = (e) => {
     setEditFormData((prevState) => {
@@ -24,7 +26,7 @@ const Form = ({onClick, item}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    addItem(editFormData)
+    editItem(editFormData)
     onClick()
   }
 
