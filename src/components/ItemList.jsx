@@ -15,7 +15,7 @@ const ItemList = ({onClick, onEdit}) => {
   }
 
   return (
-    <div className="p-5 h-full">
+    <div className="p-2 md:p-5 h-full">
      {renderItems.length === 0 &&
       <div className="h-full flex flex-col md:items-center justify-center">
         <p>You don't have any items saved yet</p>
@@ -25,7 +25,7 @@ const ItemList = ({onClick, onEdit}) => {
 
       <div>
         {renderItems.length > 0 && <button className="btn btn-big bg-green-default hover:bg-green-hover" onClick={handleClick}>Add item</button>}
-        <div className="mt-4 md:grid md:grid-cols-2 lg:gap-4 overflow-auto">
+        <div className="mt-4 md:grid md:grid-cols-2 md:gap-4 overflow-auto">
           {renderItems}
         </div>
       </div>
