@@ -11,19 +11,39 @@ module.exports = {
       xl: '1440px',
     },
     colors: {
-      'white': '#ffffff',
-      'home': '#dce4db',
-      'home-dark': '#b5c3af',
-      'food': '#e4ddce',
-      'food-dark': '#c2b497',
-      'presents': '#bfd2e2',
-      'presents-dark': '#a2bfd6',
-      'fashion': '#dcb4c2',
-      'fashion-dark': '#d3a7b6',
+      'white': '#fff',
+      'black': '#000',
+      'home': {
+        light: '#dce4db',
+        medium: '#cad6c9',
+        dark: '#b5c3af'
+
+      },
+      'food': {
+        light: '#e4ddce',
+        medium: '#ddcfb1',
+        dark: '#c2b497'
+      },
+      'presents': {
+        light: '#ccdcea',
+        medium: '#b8cbdb',
+        dark: '#a2bfd6'
+      },
+      'fashion': {
+        light: '#eac9d4',
+        medium: '#e5b7c6',
+        dark: '#d3a7b6'
+      },
       'gray': '#dddddd',
       'overlay': '#dddddd',
-      'red': '#a9331e',
-      'green': '#5aa86b'
+      'red': {
+        default: '#a9331e',
+        hover: '#932916',
+      },
+      'green': {
+        default: '#5aa86b',
+        hover: '#4c995d',
+      }
     },
   },
   plugins: [],

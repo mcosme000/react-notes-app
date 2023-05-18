@@ -31,7 +31,7 @@ const Form = ({onClick, item}) => {
     <div className="h-11/12 w-11/12 m-auto bg-white py-8 px-4 rounded-lg">
       <div className="flex justify-between">
         <h1 className="lg:pl-5">Add a new item</h1>
-        <button onClick={onClick} className="btn bg-red text-white font-bold">Cancel</button>
+        <button onClick={onClick} className="btn bg-red-default hover:bg-red-hover text-white font-bold">Cancel</button>
       </div>
       <form className="h-full lg:flex justify-between" onSubmit={handleSubmit}>
         <div className="w-full lg:w-2/4 lg:p-5">
@@ -115,7 +115,7 @@ const Form = ({onClick, item}) => {
               </div>
             </div>
           </fieldset>
-          <button type="submit" className="btn btn-big bg-green">Add item</button>
+          <button type="submit" className="btn btn-big bg-green-default hover:bg-green-hover">Add item</button>
         </div>
       </form>
     </div>
