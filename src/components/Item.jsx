@@ -48,8 +48,8 @@ const Item = ({data, onClick, onEdit}) => {
       <div className="w-full px-2 flex flex-col">
         <div className="flex-grow flex items-start">
           <div className="flex-grow">
-            <h3 className="text-sm md:text-lg">{data.name}</h3>
-            <p className="text-sm md:text-md">{data.price} $</p>
+            <h3 className="text-base lg:text-lg">{data.name}</h3>
+            <p className="text-sm lg:text-base">{data.price} $</p>
           </div>
           {/* tag */}
           <div className={tagClasses}>
