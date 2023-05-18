@@ -21,11 +21,11 @@ For the styles I used TailwindCSS.
 ## Dependencies installed
 
 <ul>
-  <li><a href="">firebase</a></li>
-  <li><a href="">react-router-dom</a></li>
-  <li><a href="">classnames</a></li>
-  <li><a href="">react-helmet</a></li>
-  <li><a href="">react-icons</a></li>
+  <li>firebase</li>
+  <li>react-router-dom</li>
+  <li>classnames</li>
+  <li>react-helmet</li>
+  <li>react-icons</li>
 </ul>
 
 
