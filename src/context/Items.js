@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react'
-import { onSnapshot, doc, addDoc, setDoc } from "firebase/firestore"
+import { onSnapshot, doc, addDoc, setDoc, deleteDoc } from "firebase/firestore"
 import { itemsCollection, db } from "../firebase"
 
 const ItemsContext = createContext()
@@ -31,6 +31,11 @@ function Provider({children}) {
     await setDoc(docRef, item, { merge: true})
   }
 
+  const deleteItem = async(itemId) => {
+    const docRef = doc(db, 'items', itemId)
+    await deleteDoc(docRef)
+  }
+
   const filterElements = (filterList) => {
     setFilter(filterList)
   }
@@ -44,6 +49,7 @@ function Provider({children}) {
     setSelectedItem: setSelectedItem,
     addItem: addItem,
     editItem: editItem,
+    deleteItem: deleteItem,
     filterElements: filterElements
   }
 

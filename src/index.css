@@ -83,4 +83,8 @@
     color: #000;
     font-weight: bold;
   }
+
+  .icon {
+    width: 16px;
+  }
 }

@@ -4,8 +4,9 @@ import ItemsContext from '../context/Items'
 
 const Item = ({data, onClick, onEdit}) => {
 
-  const { itemsData, setSelectedItem } = useContext(ItemsContext)
+  const { itemsData, setSelectedItem, deleteItem } = useContext(ItemsContext)
 
+  console.log(data.link)
   const cardClasses = classnames('mb-3 flex rounded-lg p-2', {
     'bg-home': data.category.toLowerCase() === 'home',
     'bg-food': data.category.toLowerCase() === 'food',
@@ -28,6 +29,13 @@ const Item = ({data, onClick, onEdit}) => {
     onEdit("edit")
   }
 
+  const handleDelete = () => {
+    console.log(`clicked in ${data.id}`)
+    if (window.confirm('Are you sure you wish to delete this item?')) {
+      deleteItem(data.id)
+    }
+  }
+
   return (
     <div className={cardClasses}>
       <div className="w-16 h-16 md:w-36 md:h-28">
@@ -48,11 +56,21 @@ const Item = ({data, onClick, onEdit}) => {
             <p className="hidden sm:block">{data.category}</p>
           </div>
         </div>
-        <div className="flex">
-          <a href={data.link} target="_blank" rel="noreferrer"
-          className="btn inline-block md:btn-main">Link</a>
-          <button
-          className="btn md:btn-main" onClick={handleClick}>Edit</button>
+        <div className="flex justify-between">
+          <button>
+            <a href={data.link} target="_blank" rel="noreferrer"
+            className="btn inline-block md:btn-main">Link</a>
+          </button>
+          <div className="inline-flex">
+            <button className="bg-gray text-xs font-bold py-2 px-4 rounded-l"
+            onClick={handleClick}>
+              Edit
+            </button>
+            <button className="flex bg-gray text-xs font-bold py-2 px-4 rounded-r" onClick={handleDelete}>
+              <img src={require('../media/delete-icon.png')} alt="delete-icon" className="icon"/>
+              <p>Delete</p>
+            </button>
+          </div>
         </div>
       </div>
     </div>
