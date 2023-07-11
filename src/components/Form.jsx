@@ -30,7 +30,7 @@ const Form = ({onClick, item}) => {
   return (
     <div className="h-11/12 w-11/12 m-auto bg-white py-8 px-4 rounded-lg">
       <div className="flex justify-between">
-        <h1 className="lg:pl-5">Add a new item</h1>
+        <h1 className="lg:pl-5">What item do you want to add?</h1>
         <button onClick={onClick} className="btn bg-red-default hover:bg-red-hover text-white font-bold">Cancel</button>
       </div>
       <form className="h-full lg:flex justify-between" onSubmit={handleSubmit}>

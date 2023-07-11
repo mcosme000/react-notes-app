@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './stylesheets/components/navlinks.css';
+@import './stylesheets/components/item_card.css';
+
 * {
   margin: 0;
   padding: 0;
@@ -21,8 +24,8 @@
 }
 
 .active {
-  background: #000;
-  color: #fff;
+  background: #e8d4c2;
+  font-weight: bold;
 }
 
 @layer base {
